@@ -99,6 +99,7 @@ Very likely, the model is NOT able to understand or truly identify satire or abs
 * Alternatively, World News and Onion article titles could be carefully source from more comparable time periods
 * Examine feature importance’s for the tree-models and coefficients for the logistic regression models to understand which features in the model have the greatest impact
     * This will likely provide insight into exactly how the models are working
+* Investigate more advanced NLP models
 
 ---
 # APPENDIX:
