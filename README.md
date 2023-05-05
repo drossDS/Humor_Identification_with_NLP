@@ -49,7 +49,9 @@ Seven classification models were run on the modeling dataset with article titles
 
 Each of these models were then optimized with hyperparameter tuning.  Surprisingly, the best model accuracies were generally produced with default model settings.  The logistic regression model was slightly improved by changing settings.  The results of the optimized models will be shown in the table below.
 
-Finally, stacking regressor was used to combine the three models above as level 1 estimators which would create predictions which are features in a second and final estimator logistic regression model.  This stacked model, achieved the higest performance of all models with a slight improvement over the optimized logistic regression model.  The accuracy results are shown below for the stacking and optmized models for all datasets.
+Finally, stacking regressor was used to combine the three models above as level 1 estimators which would create predictions which are features in a second and final estimator logistic regression model.  This stacked model, achieved the higest performance of all models with a slight improvement over the optimized logistic regression model.  The eniter modeling process is described in the flow chart below, and the accuracy results are shown in the subsequent table for the stacking and optmized models against all datasets.
+
+![Flow Chart](images/modeling_process.png)
 
 |                                    | Training Accuracy | Testing Accuracy | Holdout Accuracy |
 |-----------------------------------:|------------------:|-----------------:|-----------------:|
@@ -64,6 +66,8 @@ The confusion matrix for the stacked model is shown below against the testing da
 ![Confusion Matrix](images/conf_matrix_stack.png)
 
 # 5 - Abridged Discussion of Results
+The full results dicsussion can be found in the fourth code notebook.
+
 While the model did produce very good results for a 'bag or words' model it is likely sucessful in classifying article titles due to the subject-matter discussed in each of the subreddits.  The image bellow shows the word counts (producedd by CountVectorizer) with stop words (ex. 'a', 'and', 'the', 'in', etc.) removed.  It can be seen that the most popular words refelct drastically different subjects.
 
 ![Word Counts](images/word_counts_cvec_nsw.png)
