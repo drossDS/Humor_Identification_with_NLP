@@ -19,4 +19,28 @@ Comparing the titles of posts to the subreddit r/TheOnion against the subreddit 
 * Exploratory Data Analysis:   
 * Final Modeling:  Several models were run, a subset of those were optimized and then input into a borader ensemble model
 
+## 2.2 - Code Notebooks
+There are four code notbooks for this project described below:
+* 1-Data_Collection' - Collects the data as described below, outputs it to one .csv file per subreddit
+* '2-Data_Cleaning_Processing' - Imports that data from the previous notebook, performs initial data cleaning, and outputs the cleaned data to a .csv file
+* '3 Initial-Model0Additional-Processing' - Runs initial models to verify operability, performs second round data cleaning, and outputs the data to a .csv file
+* '4-Modeling-Round-2' - Performs final modeling and reports conclusions, discussions, and next steps
+
 # 3 - Description of Data
+
+## 3.1 - Data Collection:  Notebook 1
+Data were sourced using the Pushsiift API ([link](https://github.com/pushshift/api)) for the [r/TheOnion](https://www.reddit.com/r/TheOnion/) and [r/worldnews](https://www.reddit.com/r/worldnews/) subreddits.
+* Approximately 6,000 titles were sourced from both The Onion and World News, going backwards chronologically from April 24, 2023 until the stated number of posts had been collected
+* Due to the activity of the World news versus The Onion subreddits, data for World News extends back only to April 5, 2023, while data for The Onion goes all the way back to January 3 of 2020
+This notebook outputs one .csv file for each subreddit containing all information available from the Pushshift API with the name of the subreddit and the epoch time that it was collected in the file name.
+
+A holdout dataset with approximately 1000 samples for each subreddit is also created with the same file name format.
+
+## 3.2 - Cleaned Data:  Notebook 2
+Each of these datasets are processed and combined into a single notbook with only the subreddit name and the post titles.  There are approximately 10,367 samples in this dataset; 'approximately' due to the fact that each time this notebook is run, one of the cleaning procedures producs slightly different results and removes a sligtly different number of samples.  This data is output into a .csv called 'reddit_clean.csv'
+
+## 3.3 - Second Round Cleaned Data: Notebook 3
+The previous dataset is then processed further and output to a .csv called 'reddit_clean_2'.  A funciton in this notebook then cleans and processes the holdout dataset (in the same manner as this and previous notebook) which is output to 'reddit_holdout_2.csv'.  Both datasets contain only the subreddit names and post titles.
+
+This final step produces the fully cleaned and processed modeling and holdout datasets used for final modeling.
+
