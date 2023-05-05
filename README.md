@@ -40,8 +40,26 @@ A detailed description of the data collection and processing, and generated data
 Steps were taken to remvoed illegitimate subreddit post titles and stip post titles of all information that was not parts of the true article title (ex. emojis) or would be uniquely identifying to the subreddit (ex. news agency names).
 
 # 4 - Model Performance
+Models were evaluated on their accuracy in corectly identifying articles for each subreddit.  As neither false negatives nor false positives are of particulr importance in an academic setting, examining only the accuracy when selcting th emodel is appropriate.
+
+Seven classification models were run on the modeling dataset with article titles as the input data and the subreddits as the target.  Only thhe default paraemters were specified, and the goal of this step was to determine which classifiers were providing the best intial performance and had the potential to produce the best models with the highest accuracies. Two word vectorizers - CountVectorizer and TFIDFVectorizer - were both run with and without english stop words on all seven models.  Three combinations of models and word vectorizers were selected based on the accuracies produced with accuracies in predicting the test dataset between 86.7% and 88.5%.  All other models produced accuracies ranging from 76.5% to 85.2%.  The selected models/vecorizers here:
+* Logistic Regression using CountVectorizer with stop words included
+* Random Forest Classifier using CountVectorizer with stop words removed
+* Extra Trees Classifier using CountVectorizer with stop words included
+
+Each of these models were then optimized with hyperparameter tuning.  Surprisingly, the best model accuracies were generally produced with default model settings.  The logistic regression model was slightly improved by changing settings.  The results of the optimized models will be shown in the table below.
+
+Finally, stacking regressor was used to combine the three models above as level 1 estimators which would create predictions which are features in a second and final estimator logistic regression model.  This stacked model, achieved the higest performance of all models with a slight improvement over the optimized logistic regression model.  The accuracy results are shown below for the stacking and optmized models for all datasets.
+
+|                                    | Training Accuracy | Testing Accuracy | Holdout Accuracy |
+|-----------------------------------:|------------------:|-----------------:|-----------------:|
+|      Optimized Logistic Regression |          0.999751 |         0.891045 |         0.859873 |
+| Optimized Random Forest Classifier |          1.000000 |         0.866667 |         0.826288 |
+|   Optimized Extra Trees Classifier |          1.000000 |         0.879104 |         0.843080 |
+|                Stacking Classifier |          0.999876 |         0.893532 |         0.860452 |
 
 
+The confusion matrix for the stacked model is shown below against the 
 
 ---
 # APPENDIX:
