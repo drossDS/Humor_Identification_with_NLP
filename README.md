@@ -28,8 +28,16 @@ There are four code notbooks for this project described below:
 
 # 3 - Description of Data
 
-## 3.1 - Data Collection:  Notebook 1
+
 Data were sourced using the Pushsiift API ([link](https://github.com/pushshift/api)) for the [r/TheOnion](https://www.reddit.com/r/TheOnion/) and [r/worldnews](https://www.reddit.com/r/worldnews/) subreddits.
+
+A detailed description of the data collection and processing, and generated datasets can be found in the Appendix.  Accross the first three notebooks, a modeling and holdout dataset from each subreddit were collected and then cleaned and combined into modeling and holdout datasets for 
+
+* Modeling Dataset - Used to train the models and create a testing dataset which is referenced as a benchmark for continuous model improvement
+* Holdout Dataset - Treated as 'unseen data' not examined during any processing or EDA steps and 'Held out' until the modeling phase.  Decisions on modeling optimization however are model solely with the performance of the testing data to prevent data leakage.  Model performance on the holdout dataset at each modeling step is only reported for informative purposes
+
+
+## 3.1 - Data Collection:  Notebook 1
 * Approximately 6,000 titles were sourced from both The Onion and World News, going backwards chronologically from April 24, 2023 until the stated number of posts had been collected
 * Due to the activity of the World news versus The Onion subreddits, data for World News extends back only to April 5, 2023, while data for The Onion goes all the way back to January 3 of 2020
 This notebook outputs one .csv file for each subreddit containing all information available from the Pushshift API with the name of the subreddit and the epoch time that it was collected in the file name.
@@ -44,3 +52,5 @@ The previous dataset is then processed further and output to a .csv called 'redd
 
 This final step produces the fully cleaned and processed modeling and holdout datasets used for final modeling.
 
+* Modeling Dataset - Used to train the models and create a testing dataset which is referenced as a benchmark for continuous model improvement
+* Holdout Dataset - Treated as 'unseen data' not examined during any processing or EDA steps and 'Held out' until the modeling phase.  Decisions on modeling optimization however are model solely with the performance of the testing data to prevent data leakage.  Model performance on the holdout dataset at each modeling step is only reported for informative purposes
