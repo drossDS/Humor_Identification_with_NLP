@@ -59,7 +59,12 @@ Finally, stacking regressor was used to combine the three models above as level 
 |                Stacking Classifier |          0.999876 |         0.893532 |         0.860452 |
 
 
-The confusion matrix for the stacked model is shown below against the 
+The confusion matrix for the stacked model is shown below against the testing data:
+![Confusion Matrix](images/conf_matrix_stack.png)
+
+
+
+
 
 ---
 # APPENDIX:
