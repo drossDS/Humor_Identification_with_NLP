@@ -59,12 +59,42 @@ Finally, stacking regressor was used to combine the three models above as level 
 |                Stacking Classifier |          0.999876 |         0.893532 |         0.860452 |
 
 
-The confusion matrix for the stacked model is shown below against the testing data:
+The confusion matrix for the stacked model is shown below against the testing data (note, this image was exported with errors and is slightly cropped): 
+
 ![Confusion Matrix](images/conf_matrix_stack.png)
 
+# 5 - Abridged Discussion of Results
+While the model did produce very good results for a 'bag or words' model it is likely sucessful in classifying article titles due to the subject-matter discussed in each of the subreddits.  The image bellow shows the word counts (producedd by CountVectorizer) with stop words (ex. 'a', 'and', 'the', 'in', etc.) removed.  It can be seen that the most popular words refelct drastically different subjects.
 
+![Word Counts](images/word_counts_cvec_nsw.png)
 
+This difference is liekly due to the fact that the data for each subreddit cover very different spans of time with totally different world and domestic events. Additionally, The Onion is largely U.S. focused while World News purports to have a glbal focus.
 
+Very likely, the model is NOT able to understand or truly identify satire or absurdist humor based on word content alone.  However, word content is the first key to understanding such humor, and this model does provide some inital value despite lacking the ability to process the context of the statement and the world-knowledge required to understand humor that humans take for granted.
+
+# 6 - Summary
+* Seven common clissification models were run to determine which models would produce the best performance as measured by accuracy.  
+* Three models, logistic regression, extra trees classifier, and a randomforest classifier, were then selected to be optimized.  
+* With the excpetion of the logisitc regression model, all models performed better with their initial defualt parameters than after the optimization measures explored.  
+* The three optimized models were then input into a stacking calssifier which cobined their outputs to create new feaures that a final logistic regression model would then create predicitons against.
+
+# 7 - Conclusions
+* The best performing model was a stacking classifier running optimized logistic regression, random forest, and extra trees models with a logistic regression final estimator
+* The stacking regressor was overfit just as all highly accuracte models were
+* The stacking classifier produced accuracies of:
+    * 99.99% on the training data
+    * 89.4% on the testing data
+    * 86.0% on the unseen holdout data
+* WIth the holdoutdata, this model suggest comparable performance on additional unseen data
+
+**With this, it is possible to create a model which will at least discern between article titles from the World News and The Onion subreddits.  However, capability of the model to truly understnd satire or absurdist humor has yet to be determined, but is unlikely due to the relative simplicity of the model.**
+
+# 8 - Next Steps
+* Subjectivity analysis should be performed for each statement to determine if there is any value to adding this feature to a model
+* Other sources of satire should be selected where the subject matter is more identical
+* Alternatively, World News and Onion article titles could be carefully source from more comparable time periods
+* Examine feature importances for the tree-models and coefficients for the logistic regression models to understand which features in the model have the gratest impact
+    * This will likely provide insight into exactly how the models are working
 
 ---
 # APPENDIX:
