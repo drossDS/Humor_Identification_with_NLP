@@ -35,9 +35,12 @@ A detailed description of the data collection and processing, and generated data
 * Holdout Dataset - Treated as 'unseen data' not examined during any processing or EDA steps and 'Held out' until the modeling phase.  Decisions on modeling optimization however are model solely with the performance of the testing data to prevent data leakage.  Model performance on the holdout dataset at each modeling step is only reported for informative purposes
     * Apprximately* 1730 titles were collected
 
-
+#### Note Regarding Data Cleaning and Processing:
+Steps were taken to remvoed illegitimate subreddit post titles and stip post titles of all information that was not parts of the true article title (ex. emojis) or would be uniquely identifying to the subreddit (ex. news agency names).
 
 \*See Appendix for explanation
+
+# 4 - Model Performance
 
 
 
