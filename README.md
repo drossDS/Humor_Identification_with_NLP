@@ -51,7 +51,7 @@ Each of these models were then optimized with hyperparameter tuning.  Surprising
 
 Finally, stacking regressor was used to combine the three models above as level 1 estimators which would create predictions which are features in a second and final estimator logistic regression model.  This stacked model, achieved the higest performance of all models with a slight improvement over the optimized logistic regression model.  The eniter modeling process is described in the flow chart below, and the accuracy results are shown in the subsequent table for the stacking and optmized models against all datasets.
 
-![Flow Chart](images/modeling_process.png)
+![Flow Chart](https://git.generalassemb.ly/drossetti/project-3/blob/1e8d20dfb0906383127d9752f7f37232e9e5ccd4/images/modeling_process.PNG)
 
 |                                    | Training Accuracy | Testing Accuracy | Holdout Accuracy |
 |-----------------------------------:|------------------:|-----------------:|-----------------:|
