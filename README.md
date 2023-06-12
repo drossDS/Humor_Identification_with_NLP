@@ -117,3 +117,4 @@ The holdout dataset contained approximately 1730 datapoints when fully cleaned a
 
 ## Second Round Cleaned Data: Notebook 3
 The previous dataset is then processed further and output to a .csv called 'reddit_clean_2'.  A function in this notebook then cleans and processes the holdout dataset (in the same manner as this and previous notebook) which is output to 'reddit_holdout_2.csv'.  Both datasets contain only the subreddit names and post titles.  This final step produces the fully cleaned and processed modeling and holdout datasets used for final modeling.
+
