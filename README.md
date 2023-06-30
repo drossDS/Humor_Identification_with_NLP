@@ -7,23 +7,21 @@ This project is conducted from the standpoint of a data scientist hired by a uni
 **Can an NLP classification model be trained to recognize satire or absurdist humor?**
 
 # 2. Project Approach
-The Onion is a satirical news organization which produces news titles and news stories often relevant to real, current events that are satirical or would otherwise be classified as absurdist humor.  For clarity **news articles and titles from The Onion are not real.**  The tiles are however, formatted in the format of actual news titles and articles which, from legitimate news agencies - are not humorous.
-
-Comparing the titles of posts to the subreddit r/TheOnion against the subreddit r/worldnews (which posts news stories from actual news agencies) provides a way to compare strings of text which share many of the same formatting characteristics, but have completely different goals with respect to humor.
+The Onion is a satirical news organization which produces news titles and news stories often relevant to real, current events that are satirical or would otherwise be classified as absurdist humor.  For clarity **news articles and titles from The Onion are not real.**  The Onion's titles, however, are structured in the format of actual news titles from legitimate news agencies despite being absurd or satirical.  Conversely, titles from legitimate news agencies are obviously not intended to be humorous.  Comparing the titles of posts to the subreddit r/TheOnion against the subreddit r/worldnews (which posts news stories from actual news agencies) provides a way to compare strings of text which share many of the same formatting characteristics, but have completely different goals with respect to humor.
 
 ## 2.1 - High-level Steps
 * Data Collection: Article titles from the World News and The Onion subreddits were collected
 * Data Cleaning:  Titles were cleaned or removed as necessary to remove illegitimate titles and errors 
 * Initial Modeling:  Some simple ensemble models were run to verify model operability on the cleaned data
 * Second-round Data Cleaning:  Information in titles that would confuse the model or make the titles easily identifiable were removed
-* Exploratory Data Analysis:   
+* Exploratory Data Analysis:   Word counts and sentiment analysis are performed to compare datasets from each class.
 * Final Modeling:  Several models were run, a subset of those were optimized and then input into a borader ensemble model
 
 ## 2.2 - Code Notebooks
 There are four code notebooks for this project described below:
 * 1-Data_Collection' - Collects the data as described below, outputs it to one .csv file per subreddit
 * '2-Data_Cleaning_Processing' - Imports that data from the previous notebook, performs initial data cleaning, and outputs the cleaned data to a .csv file
-* '3 Initial-Model0Additional-Processing' - Runs initial models to verify operability, performs second round data cleaning, and outputs the data to a .csv file
+* '3 Initial-Model-Additional-Processing' - Runs initial models to verify operability, performs second round data cleaning, and outputs the data to a .csv file
 * '4-Modeling-Round-2' - Performs final modeling and reports conclusions, discussions, and next steps
 
 # 3 - Description of Data
